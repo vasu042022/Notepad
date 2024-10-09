@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            margin: auto;
+            padding: 0;
+            box-sizing: border-box;
+            /* width: 100%;
+            height: 100%; */
+            /* background-color: gray; */
+            background-image: url(https://images.pexels.com/photos/531844/pexels-photo-531844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+        }
+        h1{
+            text-align: center;
+            text-decoration:underline;
+            background-color: black;
+            color: white;
+        }
+        h3{
+            text-align: center;
+        }
+
+        .parent {
+            width: 100%;
+            height: 800px;
+            flex-wrap: wrap;
+            gap: 20px;
+            display: flex;
+            padding-top: 5px;
+        }
+
+        .box {
+            width: 300px;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px black solid;
+            gap: 10px;
+            /* background-image: url(../Notepad/images/1\ \(2\).png); */
+        }
+
+        .btn {
+            width: 100px;
+            height: 45px;
+            background-color: red;
+            color: white;
+            /* float: right; */
+            margin-left: 700px;
+        }
+
+        .box1 {
+            width: 100%;
+            height: 25px;
+            overflow: hidden;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+            margin: auto;
+        }
+
+        #text {
+            width: 295px;
+            height: 470px;
+            border: none;
+            resize: none;
+            font-size: 18px;
+            background-image: url(../Notepad/images/1\ \(2\).png);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Notepad</h1>
+        <button class="btn" id="btn" onclick="adddiv()">
+            <h3>Add more</h3>
+        </button>
+    </div>
+    <div class="parent" id="parent">
+        <div class="box" id="box">
+            <div class="box1" id="box1">     
+                <i class="fa-solid fa-floppy-disk" id="icon"></i>
+                <i class="fa-solid fa-trash" id="icon"></i>
+            </div>
+            <textarea name="text" id="text" cols="30" rows="10" placeholder="Add your notes here!!"></textarea>
+        </div>
+    </div>
+    <script>
+        function adddiv() {
+            const parent = document.getElementById("parent");
+    
+            const newDiv = document.createElement("div");
+            newDiv.className = "box";
+
+            const box1 = document.createElement("div");
+            box1.className = "box1";
+
+            const saveIcon = document.createElement("i");
+            saveIcon.className = "fa-solid fa-floppy-disk";
+            saveIcon.onclick = function () {
+            };
+
+            const deleteIcon = document.createElement("i");
+            deleteIcon.className = "fa-solid fa-trash";
+            deleteIcon.onclick = function () {
+                parent.removeChild(newDiv);
+            };
+
+            box1.appendChild(saveIcon);
+            box1.appendChild(deleteIcon);
+
+            const textarea = document.createElement("textarea");
+            textarea.id = "text";
+            textarea.name = "text";
+            textarea.cols = "30";
+            textarea.rows = "10";
+
+            newDiv.appendChild(box1);
+            newDiv.appendChild(textarea);
+
+            parent.appendChild(newDiv);
+        }
+    </script>
+</body>
+
+</html>
